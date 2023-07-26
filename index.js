@@ -6,6 +6,7 @@ let express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const cors = require('cors')
 
 const morgan       = require('morgan'); // Module to create logfile
 const cookieParser = require('cookie-parser');
@@ -41,6 +42,10 @@ app.use(session({
 	secret: "ilovescotchscotchyscotchscotch", // session secret
     resave: false,
     saveUninitialized: false
+}));
+
+app.use(cors({
+  origin: '*'
 }));
 
 // routes ======================================================================
